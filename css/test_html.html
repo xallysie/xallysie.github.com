@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Your Website</title>
+    
+    <!-- External CSS -->
+    <link rel="stylesheet" href="https://code.sallyxie.org/css/core.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.css">
+
+    <!-- jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+
+    <!-- External JavaScript Files -->
+    <script src="https://code.sallyxie.org/css/cl.js"></script>
+    <script src="https://code.sallyxie.org/css/modals.js"></script>
+    <script src="https://code.sallyxie.org/css/pl.js"></script>
+    <script src="https://code.sallyxie.org/css/scrollflex.js"></script>
+
+    <style>
+        /* Additional custom styles */
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            height: 100vh;
+        }
+
+        .image-column {
+            width: 50%;
+            background: url('https://64.media.tumblr.com/e6d8b6301ddebe762070bbb999ec4a29/808868ee26757afc-4d/s2048x3072/094927c311ea0f493d06b7f5952c03834c88e46a.jpg') center/cover no-repeat;
+        }
+
+        .text-column {
+            width: 50%;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Scroll-triggered expansion styles */
+        .expanded {
+            transition: all 0.5s ease;
+            width: 100%;
+        }
+
+        /* Hamburger Menu */
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            font-size: 24px;
+        }
+
+        @media (max-width: 768px) {
+            .hamburger {
+                display: block;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation (Hamburger Menu) -->
+    <div class="hamburger">
+        <i class="fa fa-bars"></i>
+    </div>
+
+    <!-- Main Container (Two-column layout) -->
+    <div class="container">
+        <div class="image-column" id="imageColumn">
+            <!-- Placeholder for random image -->
+        </div>
+        <div class="text-column">
+            <p>Your content goes here. Replace with your actual text from the original Tumblr page.</p>
+        </div>
+    </div>
+
+    <script>
+        // Random image functionality (for navigation pages)
+        const imageCollection = ['image1.jpg', 'image2.jpg', 'image3.jpg']; // Add image paths
+        const randomImage = imageCollection[Math.floor(Math.random() * imageCollection.length)];
+        document.getElementById('imageColumn').style.backgroundImage = `url(${randomImage})`;
+
+        // Scroll-triggered column expansion
+        $(window).scroll(function () {
+            if ($(this).scrollTop() > 100) {
+                $('#imageColumn').addClass('expanded');
+                $('.text-column').addClass('expanded');
+            } else {
+                $('#imageColumn').removeClass('expanded');
+                $('.text-column').removeClass('expanded');
+            }
+        });
+
+        // Hamburger menu functionality
+        $('.hamburger').click(function () {
+            // Add your navigation toggle logic here
+            alert('Menu clicked! Add your navigation here.');
+        });
+    </script>
+</body>
+</html>
